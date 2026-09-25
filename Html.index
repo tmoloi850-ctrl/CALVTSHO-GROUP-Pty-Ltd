@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALvTSHO GROUP (Pty) Ltd</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-dark: #0f2343;
+            --accent: #d69e2e;
+            --accent-light: #f6e05e;
+            --text-dark: #2d3748;
+            --text-light: #f7fafc;
+            --bg-light: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-circle {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-dark), #2a4365);
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 14px;
+        }
+
+        .nav-brand {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero / Identity Section */
+        .hero {
+            background: radial-gradient(circle, #224272 0%, var(--primary-dark) 100%);
+            color: var(--text-light);
+            padding: 5rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .logo-container {
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        /* Scalable SVG Replicated Monogram Logo */
+        .svg-logo {
+            width: 160px;
+            height: 160px;
+            filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.5));
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .motto {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Strategic Foundations Grid (Vision, Mission) */
+        .foundations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 4rem;
+        }
+
+        .foundation-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+        }
+
+        .foundation-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Core Values & Abilities section */
+        .values-bg {
+            background-color: #f1f5f9;
+            padding: 4rem 0;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .value-card, .ability-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .value-card h4, .ability-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Operational Divisions Section */
+        .divisions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+
+        .division-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .division-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .div-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            font-weight: bold;
+            font-size: 1.15rem;
+        }
+
+        .div-body {
+            padding: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Leadership Section */
+        .leadership-box {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin: 3rem auto;
+            max-width: 800px;
+        }
+
+        .director-img-container {
+            width: 40%;
+            background-color: #e2e8f0;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .director-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .img-fallback-tip {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 54, 93, 0.9);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .director-img-container:hover .img-fallback-tip {
+            opacity: 1;
+        }
+
+        .leadership-details {
+            width: 60%;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .leadership-details h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .leadership-details .title {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        /* Interactive Feedback Engine */
+        .feedback-section {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 4rem 1.5rem;
+        }
+
+        .feedback-section .section-title {
+            color: white;
+        }
+
+        .feedback-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .feedback-container, .leadership-box {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            .director-img-container, .leadership-details {
+                width: 100%;
+            }
+        }
+
+        .reviews-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 450px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .review-card {
+            background: rgba(255,255,255,0.08);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .review-meta {
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .review-stars {
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-panel {
+            background: white;
+            color: var(--text-dark);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .star-rating-input {
+            display: flex;
+            gap: 8px;
+            font-size: 1.5rem;
+            cursor: pointer;
